@@ -30,9 +30,11 @@ function Tabzy(selector, options = {}) {
 }
 
 Tabzy.prototype._init = function () {
+    const params = new URLSearchParams(location.search);
+    const tabSelector = params.get("tab");
+    
     const hash = location.hash;
-    const tab = (this.otp.remember && hash && this.tabs.find(tab => tab.getAttribute('href') === hash));
-    this.tabs[0];
+    const tab = (this.otp.remember && hash && this.tabs.find(tab => tab.getAttribute('href') === tabSelector)) || this.tabs[0];
     this._activeTab(tab)
 
 
@@ -59,7 +61,11 @@ Tabzy.prototype._activeTab = function (tab) {
     panelActive.hidden = false;
 
     if (this.otp.remember) {
-        history.replaceState(null, null, tab.getAttribute("href"));
+        history.replaceState(
+            null,
+            null,
+            `?tab=${encodeURIComponent(tab.getAttribute("href"))}`
+        );
     }
 }
 

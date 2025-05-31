@@ -32,9 +32,31 @@
     <div id="tab3">Tab3 content</div>
 
 
+     <ul id="tabs">
+        <!-- tabs -->
+        <li class="tabzy--active">
+            <a href="#tabA">Tab A</a>
+        </li>
+        <li>
+            <a href="#tabB">Tab B</a>
+        </li>
+        <li>
+            <a href="#tabC">Tab C</a>
+        </li>
+    </ul>
+    <!-- Panels -->
+    <div id="tab1">TabA content</div>
+    <div id="tab2">TabB content</div>
+    <div id="tab3">TabC content</div>
+
+
     <script src="./src/tabzy.js"></script>
     <script>
-        const tabs = new Tabzy("#tabs",{
+        const tabs = new Tabzy("#tab1",{
+            remember:true
+        });
+
+         const tabs2 = new Tabzy("#tab2",{
             remember:true
         });
         
