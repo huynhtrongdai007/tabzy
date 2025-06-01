@@ -45,18 +45,22 @@
         </li>
     </ul>
     <!-- Panels -->
-    <div id="tab1">TabA content</div>
-    <div id="tab2">TabB content</div>
-    <div id="tab3">TabC content</div>
+    <div id="tabA">TabA content</div>
+    <div id="tabB">TabB content</div>
+    <div id="tabC">TabC content</div>
 
 
     <script src="./src/tabzy.js"></script>
     <script>
         const tabs = new Tabzy("#tab1",{
-            remember:true
+            remember:true,
+            onChange:(data) => {
+                console.log(data);
+                
+            },
         });
 
-         const tabs2 = new Tabzy("#tab2",{
+         const tabs2 = new Tabzy("#tabA",{
             remember:true
         });
         
